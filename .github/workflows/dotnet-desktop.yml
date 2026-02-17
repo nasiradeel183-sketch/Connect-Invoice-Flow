@@ -44,9 +44,10 @@ jobs:
       run: |
        npx playwright install --with-deps chromium
 
-    - name: Render Mermaid to SVG
+    - name: Render Mermaid to SVG (no Chromium)
       run: |
-       npx mmdc -i docs/flowchart.mmd -o docs/flowchart.svg
+        mermaid-render docs/flowchart.mmd -o docs/flowchart.svg
+
 
 
     - name: Commit updated docs
