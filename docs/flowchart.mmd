@@ -1,0 +1,10 @@
+flowchart TD
+    A0[Entry point – invoice received from Rillion] --> A1[Determine invoice source]
+    A1[Determine invoice source] --> A2[Apply source-specific mapping]
+    A2[Apply source-specific mapping] --> A3[Validate invoice business rules]
+    A3[Validate invoice business rules] --> A4[Reject invoice and log reason]
+    A4[Reject invoice and log reason] --> A5[Send invoice to ERP]
+    A5[Send invoice to ERP] --> A6[ERP API call]
+    A6[ERP API call] --> A7[Map invoice fields based on source system]
+    A7[Map invoice fields based on source system] --> A8[Map invoice fields based on source system]
+    A8[Map invoice fields based on source system] --> A9[Validate header, supplier, totals, currency]
