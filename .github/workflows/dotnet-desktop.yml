@@ -22,6 +22,11 @@ jobs:
       run: |
         npm install -g @mermaid-js/mermaid-cli
 
+    - name: Install dotnet-script as local tool
+      run: |
+        dotnet new tool-manifest
+        dotnet tool install dotnet-script
+
     - name: Run flowchart generator
       run: |
         dotnet script scripts/generate-mermaid.csx
