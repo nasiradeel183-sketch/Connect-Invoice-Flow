@@ -26,17 +26,17 @@ namespace src.InvoiceProcessor
             // FLOWSTEP: Apply source-specific mapping
             var mapped = _mapping.Map(invoice);
 
-            // FLOW DECISION: Is supplier active in ERP?
+            // %% FLOWDECISION: Is supplier active in ERP?
             var isValid = _validation.Validate(mapped);
 
             if (!isValid)
             {
-                // FLOW NO: Reject invoice with error
+                //  %% FLOW NO: Reject invoice with error
                 Console.WriteLine("Invoice rejected");
                 return;
             }
 
-            // FLOW YES: Continue processing
+            //  %% FLOW YES: Continue processing
             SendToErp(mapped);
         }
 
