@@ -20,7 +20,7 @@ namespace src.InvoiceProcessor
         // FLOWSTEP: Entry point – invoice received from Rillion
         public void Process(Invoice invoice)
         {
-            // FLOWSTEP: Determine invoice source (Prime or R1)
+            // FLOWSTEP: Determine invoice source
             var source = invoice.Source;
 
             // FLOWSTEP: Apply source-specific mapping
