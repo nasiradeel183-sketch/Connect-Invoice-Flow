@@ -47,9 +47,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include=".github\workflows\" />
-    <Folder Include="docs\" />
     <Folder Include="scripts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".github\workflows\generate-flowchart.yml" />
+    <None Include="docs\index.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
