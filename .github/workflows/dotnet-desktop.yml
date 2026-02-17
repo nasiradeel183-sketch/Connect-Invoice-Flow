@@ -35,18 +35,19 @@ jobs:
       run: |
        npm uninstall -g @mermaid-js/mermaid-cli || true
 
-    - name: Install Mermaid CLI locally
+    - name: Install mermaid-render
       run: |
-       npm init -y
-       npm install @mermaid-js/mermaid-cli@10.9.0
+       npm install -g mermaid-render
+
 
     - name: Install Playwright Chromium
       run: |
        npx playwright install --with-deps chromium
 
-    - name: Render Mermaid to SVG (no Chromium)
+    - name: Render Mermaid to SVG
       run: |
         mermaid-render docs/flowchart.mmd -o docs/flowchart.svg
+
 
 
 
