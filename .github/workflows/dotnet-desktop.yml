@@ -31,9 +31,9 @@ jobs:
       run: |
         dotnet script scripts/generate-mermaid.csx
 
-    - name: Install Mermaid CLI
+    - name: Install Mermaid CLI (force latest)
       run: |
-       npm install -g @mermaid-js/mermaid-cli
+        npm install -g @mermaid-js/mermaid-cli@10.9.0
 
     - name: Install Playwright browsers
       run: |
