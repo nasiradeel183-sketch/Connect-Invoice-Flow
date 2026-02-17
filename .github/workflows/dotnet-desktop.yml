@@ -33,7 +33,7 @@ jobs:
 
     - name: Render Mermaid to SVG
       run: |
-        mmdc -i docs/flowchart.mmd -o docs/flowchart.svg
+        mmdc --no-sandbox -i docs/flowchart.mmd -o docs/flowchart.svg
 
     - name: Commit updated docs
       run: |
