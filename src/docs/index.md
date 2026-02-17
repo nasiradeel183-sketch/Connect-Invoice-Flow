@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿# Connect Invoice Processing Flow
 
-namespace src.docs
-{
-    class index
-    {
-    }
-}
+Below is the automatically generated flowchart:
+
+![Flowchart](flowchart.svg)

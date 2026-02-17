@@ -47,12 +47,11 @@
     <Compile Include="InvoiceProcessor\ValidationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="scripts\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include=".github\workflows\generate-flowchart.yml" />
     <None Include="docs\index.md" />
+    <None Include="scripts\generate-mermaid.csx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

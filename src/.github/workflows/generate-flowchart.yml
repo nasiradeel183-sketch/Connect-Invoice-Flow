@@ -1,12 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿name: Generate Flowchart
 
-namespace src.github.workflows
-{
-    class generate_flowchart
-    {
-    }
-}
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Install .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Install Mermaid CLI
+      run: |
+        npm install -g @mermaid-js/mermaid-cli
+
+    - name: Run flowchart generator
+      run: |
+        dotnet script scripts/generate-mermaid.csx
+
+    - name: Render Mermaid to SVG
+      run: |
+        mmdc -i docs/flowchart.mmd -o docs/flowchart.svg
+
+    - name: Commit updated docs
+      run: |
+        git config user.name "github-actions"
+        git config user.email "actions@github.com"
+        git add docs/flowchart.mmd docs/flowchart.svg
+        git commit -m "Auto-update flowchart" || echo "No changes"
+        git push
