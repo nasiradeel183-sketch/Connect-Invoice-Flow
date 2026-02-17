@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace src.InvoiceProcessor
 {
-    internal class MappingService
+    // FLOWSTEP: Map invoice fields based on source system
+    public class MappingService
     {
+        // FLOWSTEP: Map invoice fields based on source system
+        public MappedInvoice Map(Invoice invoice)
+        {
+            return new MappedInvoice
+            {
+                Supplier = "ABC"
+            };
+        }
     }
+
+
 }
