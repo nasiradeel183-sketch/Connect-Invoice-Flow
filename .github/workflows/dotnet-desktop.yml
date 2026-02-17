@@ -27,12 +27,12 @@ jobs:
       run: |
         dotnet tool run dotnet-script scripts/generate-mermaid.csx
 
-    - name: Install Mermaid CLI (WASM, no Chromium)
+    - name: Install WASM-only Mermaid CLI
       run: |
         npm init -y
-        npm install @mermaid-js/mermaid-cli@latest
+        npm install @mermaid-js/mermaid-cli@11.0.0-alpha.7
 
-    - name: Render Mermaid to SVG (WASM engine)
+    - name: Render Mermaid to SVG (WASM, no Chromium)
       run: |
         npx @mermaid-js/mermaid-cli -i docs/flowchart.mmd -o docs/flowchart.svg
 
