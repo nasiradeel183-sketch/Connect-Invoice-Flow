@@ -31,6 +31,18 @@ jobs:
       run: |
         dotnet script scripts/generate-mermaid.csx
 
+    - name: Install Mermaid CLI
+      run: |
+       npm install -g @mermaid-js/mermaid-cli
+
+    - name: Install Playwright browsers
+      run: |
+       npx playwright install --with-deps chromium
+
+    - name: Render Mermaid to SVG
+      run: |
+       mmdc -i docs/flowchart.mmd -o docs/flowchart.svg
+    
     - name: Render Mermaid to SVG
       run: |
        mmdc --no-sandbox -i docs/flowchart.mmd -o docs/flowchart.svg
