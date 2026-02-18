@@ -1,3 +1,4 @@
+#nullable enable
 #r "nuget: System.IO.Abstractions, 19.2.29"
 
 using System.IO;
