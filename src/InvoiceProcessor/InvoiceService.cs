@@ -17,32 +17,32 @@ namespace src.InvoiceProcessor
             _mapping = new MappingService();
         }
 
-        // FLOWSTEP: Entry point – invoice received from Rillion
+        // FLOW START: Invoice Received from Rillion
         public void Process(Invoice invoice)
         {
             // FLOWSTEP: Determine invoice source
             var source = invoice.Source;
 
-            // FLOWSTEP: Apply source-specific mapping
+            // FLOW STEP: Check supplier in ERP
             var mapped = _mapping.Map(invoice);
 
-            // %% FLOWDECISION: Is supplier active in ERP?
+            // FLOW DECISION: Supplier exists?
             var isValid = _validation.Validate(mapped);
 
             if (!isValid)
             {
-                //  %% FLOW NO: Reject invoice with error
+                // FLOW NO: Create supplier sync task
                 Console.WriteLine("Invoice rejected");
                 return;
             }
 
-            //  %% FLOW YES: Continue processing
+            // FLOW YES: Submit invoice to ERP
             SendToErp(mapped);
         }
 
         private void SendToErp(MappedInvoice invoice)
         {
-            // FLOWSTEP: ERP API call
+            // FLOW STEP: ERP API call
             Console.WriteLine("Sending invoice to ERP...");
         }
     }
