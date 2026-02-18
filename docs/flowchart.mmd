@@ -1,7 +1,16 @@
 flowchart TD
-    A0[Entry point – invoice received from Rillion] --> A1[Determine invoice source]
-    A1[Determine invoice source] --> A2[Apply source-specific mapping]
-    A2[Apply source-specific mapping] --> A3[ERP API call]
-    A3[ERP API call] --> A4[Map invoice fields based on source system]
-    A4[Map invoice fields based on source system] --> A5[Map invoice fields based on source system]
-    A5[Map invoice fields based on source system] --> A6[Validate header, supplier, totals, currency]
+    N0(["Invoice Received from Rillion"])
+    N1["Check supplier in ERP"]
+    N2{"Supplier exists?"}
+    N3["Create supplier sync task"]
+    N4["Submit invoice to ERP"]
+    N5["ERP API call"]
+    N6["Map invoice fields based on source system"]
+    N7["Validate header, supplier, totals, currency"]
+    N0 --> N1
+    N1 --> N2
+    N2 -->|No| N3
+    N2 -->|Yes| N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
