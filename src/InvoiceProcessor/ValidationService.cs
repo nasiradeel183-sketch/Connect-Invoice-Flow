@@ -8,7 +8,7 @@ namespace src.InvoiceProcessor
 {
     public class ValidationService
     {
-        // FLOW STEP: Validate header, supplier, totals, currency
+        // FLOW LINK: Validate header, supplier, totals, currency
         public bool Validate(MappedInvoice invoice)
         {
             return true;
