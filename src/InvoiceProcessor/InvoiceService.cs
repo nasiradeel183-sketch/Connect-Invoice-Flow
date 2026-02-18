@@ -20,7 +20,7 @@ namespace src.InvoiceProcessor
         // FLOW START: Invoice Received from Rillion
         public void Process(Invoice invoice)
         {
-            // FLOWSTEP: Determine invoice source
+            // FLOW STEP: Determine invoice source
             var source = invoice.Source;
 
             // FLOW STEP: Check supplier in ERP
