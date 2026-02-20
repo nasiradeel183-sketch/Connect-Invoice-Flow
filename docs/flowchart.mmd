@@ -1,14 +1,17 @@
 flowchart TD
-    N0(["Invoice Received from Rillion"])
-    N1["Determine invoice source"]
-    N2["Check supplier in ERP"]
-    N3{"Supplier exists?"}
-    N4["Create supplier sync task"]
-    N5["Submit invoice to ERP"]
-    N6["ERP API call"]
+    N0["Validate header, supplier, totals, currency"]
+    N1["Map invoice fields based on source system"]
+    N2(["Invoice Received from Rillion"])
+    N3["Determine invoice source"]
+    N4["Check supplier in ERP"]
+    N5{"Supplier exists?"}
+    N6["Create supplier sync task"]
+    N7["Submit invoice to ERP"]
+    N8["ERP API call"]
     N0 --> N1
-    N1 --> N2
     N2 --> N3
-    N3 -->|No| N4
-    N3 -->|Yes| N5
-    N5 --> N6
+    N3 --> N4
+    N4 --> N5
+    N5 -->|No| N6
+    N5 -->|Yes| N7
+    N7 --> N8
