@@ -9,7 +9,7 @@ namespace src.InvoiceProcessor
     
     public class MappingService
     {
-        // FLOW LINK: Map invoice fields based on source system
+        // FLOW STEP: Map invoice fields based on source system
         public MappedInvoice Map(Invoice invoice)
         {
             return new MappedInvoice
