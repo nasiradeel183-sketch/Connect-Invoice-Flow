@@ -6,13 +6,9 @@ flowchart TD
     N4["Create supplier sync task"]
     N5["Submit invoice to ERP"]
     N6["ERP API call"]
-    N7["Map invoice fields based on source system"]
-    N8["Validate header, supplier, totals, currency"]
     N0 --> N1
     N1 --> N2
     N2 --> N3
     N3 -->|No| N4
     N3 -->|Yes| N5
     N5 --> N6
-    N6 --> N7
-    N7 --> N8
